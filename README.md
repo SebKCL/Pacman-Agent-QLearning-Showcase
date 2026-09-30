@@ -1,21 +1,21 @@
 # Pacman Q-Learning Agent (Reinforcement Learning)
 
-> A tabular Q-learning agent built from scratch that learns to play Pacman purely from reward signals.
+> I wrote a tabular Q-learning agent from scratch that teaches itself Pacman from rewards alone.
 
-🔒 **The source code is in a private repository** because this was university coursework at King's College London. I'm happy to walk through the code on request.
+🔒 The code sits in a private repository because this was King's College London coursework. Ask me and I'll walk you through it.
 
 ## Overview
-I implemented an online reinforcement-learning agent on top of the UC Berkeley Pacman framework. It learns a state–action value function Q(s, a) during play. It wins at least 8 out of 10 games on the smallGrid layout after 2,000 training episodes, and it also runs reliably on other layouts.
+The agent runs on the UC Berkeley Pacman framework and learns a value for each state and action, Q(s, a), as it plays. After 2,000 training games it wins at least 8 of 10 on smallGrid, and it handles other layouts too.
 
 ## What I built
-- **Compact state representation:** a hashable feature wrapper based on Pacman's position, ghost positions and the food layout
-- **Reward shaping:** penalties for being next to a ghost, rewards for food, and a small step cost that encourages efficient paths
-- **Q-learning update:** online temporal-difference updates with a configurable learning rate and discount factor
-- **Count-based exploration:** an exploration function that favours actions that have rarely been tried (optimism in the face of uncertainty), rather than plain ε-greedy
-- **Training lifecycle:** the policy is automatically frozen once training finishes, and the hyperparameters can be set from the command line
+- **State representation:** a hashable wrapper built from Pacman's position, the ghosts' positions and the remaining food
+- **Reward shaping:** a penalty next to a ghost, a reward for food, and a small cost per step so Pacman takes short routes
+- **Q-learning update:** temporal-difference updates on every move, with a tunable learning rate and discount factor
+- **Exploration:** a count-based bonus that pushes Pacman towards the moves it has tried least, in place of plain ε-greedy
+- **Training control:** the agent freezes its policy when training ends, and you can set every hyperparameter from the command line
 
-## Skills demonstrated
-Reinforcement learning · algorithm implementation from first principles · reward design · experimentation
+## Skills
+Reinforcement learning · algorithms from first principles · reward design · experimentation
 
 ## Tech stack
-Python (no ML libraries: everything implemented from scratch)
+Python, with no ML libraries
